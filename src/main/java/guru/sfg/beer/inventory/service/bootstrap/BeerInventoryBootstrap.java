@@ -16,12 +16,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Component
 public class BeerInventoryBootstrap implements CommandLineRunner {
-    public static final String BEER_1_UPC = "0631234200036";
-    public static final String BEER_2_UPC = "0631234300019";
-    public static final String BEER_3_UPC = "0083783375213";
-    public static final UUID BEER_1_UUID = UUID.fromString("0a818933-087d-47f2-ad83-2f986ed087eb");
-    public static final UUID BEER_2_UUID = UUID.fromString("a712d914-61ea-4623-8bd0-32c0f6545bfd");
-    public static final UUID BEER_3_UUID = UUID.fromString("026cc3c8-3a0c-4083-a05b-e908048c1b08");
+    public static final String BEER_1_UPC = "061234056467";
+    public static final String BEER_2_UPC = "062348431575";
+    public static final String BEER_3_UPC = "068794987124";
+    public static final UUID BEER_1_UUID = UUID.fromString("6b66cf44-bbc8-44c6-9a1d-4ebb9241378d");
+    public static final UUID BEER_2_UUID = UUID.fromString("18527465-425b-41fb-a91d-c14f02de3edc");
+    public static final UUID BEER_3_UUID = UUID.fromString("d6aed17f-2965-4bdc-b940-ffd2d5fdb62e");
 
     private final BeerInventoryRepository beerInventoryRepository;
 
@@ -37,21 +37,21 @@ public class BeerInventoryBootstrap implements CommandLineRunner {
                 .builder()
                 .beerId(BEER_1_UUID)
                 .upc(BEER_1_UPC)
-                .quantityOnHand(50)
+                .quantityOnHand(55)
                 .build());
 
         beerInventoryRepository.save(BeerInventory
                 .builder()
                 .beerId(BEER_2_UUID)
                 .upc(BEER_2_UPC)
-                .quantityOnHand(50)
+                .quantityOnHand(45)
                 .build());
 
         beerInventoryRepository.saveAndFlush(BeerInventory
                 .builder()
                 .beerId(BEER_3_UUID)
                 .upc(BEER_3_UPC)
-                .quantityOnHand(50)
+                .quantityOnHand(20)
                 .build());
 
         log.debug("Loaded Inventory. Record count: " + beerInventoryRepository.count());
